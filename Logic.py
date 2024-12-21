@@ -22,8 +22,13 @@ def check(brd):
             if brd[row][column] != " ":
                 if brd[row][column] == brd[row][column+1] and brd[row][column] == brd[row][column+2] and brd[row][column] == brd[row][column+3]:
                     return True
-                else:
-                    return False
+                if brd[row][column] == brd[row-1][column] and brd[row][column] == brd[row-2][column] and brd[row][column] == brd[row-3][column]:
+                    return True
+                elif brd[row][column] == brd[row-1][column+1] and brd[row][column] == brd[row-2][column+2] and brd[row][column] == brd[row-3][column+3]:
+                    return True
+                elif brd[row][column] == brd[row-1][column-1] and brd[row][column] == brd[row-2][column-2] and brd[row][column] == brd[row-3][column-3]:
+                    return True
+    return False
 
 def playgame(brd):
     print(check(brd))
@@ -31,6 +36,8 @@ def playgame(brd):
         renderboard(brd)
         place(brd)
         print(check(brd))
+        print(board[5][0],board[4][0],board[3][0],board[2][0])
+    print(board)
 
 playgame(board)
 
